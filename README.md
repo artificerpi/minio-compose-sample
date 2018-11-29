@@ -24,16 +24,7 @@ https://docs.docker.com/compose/install/#install-compose
 Enter the directory of this project, then use following commands to handle deployment.
 - start or update
 ``` bash
-docker-compose up -d
-```
-- stop
-``` bash
-docker-compose stop
-```
-
-- remove
-``` bash
-docker-compose rm
+docker stack deploy -c docker-compose.yml minio
 ```
 
 Go to http://your-host-ip:9000 to visit the minio web page.
