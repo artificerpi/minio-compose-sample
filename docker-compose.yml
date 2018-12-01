@@ -24,9 +24,9 @@ services:
   ports:
    - "9000"
   hostname: minio1
-  secrets:
-   - secret_key
-   - access_key
+  environment:
+   MINIO_ACCESS_KEY: minio-artificerpi
+   MINIO_SECRET_KEY: minio-passw0rd
   command: server http://minio1/data http://minio2/data http://minio3/data http://minio4/data 
   
  minio2:
@@ -38,9 +38,9 @@ services:
   ports:
    - "9000"
   hostname: minio2
-  secrets:
-   - secret_key
-   - access_key
+  environment:
+   MINIO_ACCESS_KEY: minio-artificerpi
+   MINIO_SECRET_KEY: minio-passw0rd
   command: server http://minio1/data http://minio2/data http://minio3/data http://minio4/data 
 
  minio3:
@@ -52,9 +52,9 @@ services:
   ports:
    - "9000"
   hostname: minio3
-  secrets:
-   - secret_key
-   - access_key
+  environment:
+   MINIO_ACCESS_KEY: minio-artificerpi
+   MINIO_SECRET_KEY: minio-passw0rd
   command: server http://minio1/data http://minio2/data http://minio3/data http://minio4/data 
 
  minio4:
@@ -66,9 +66,9 @@ services:
   ports:
    - "9000"
   hostname: minio4
-  secrets:
-   - secret_key
-   - access_key
+  environment:
+   MINIO_ACCESS_KEY: minio-artificerpi
+   MINIO_SECRET_KEY: minio-passw0rd
   command: server http://minio1/data http://minio2/data http://minio3/data http://minio4/data 
 
 volumes:
@@ -81,8 +81,3 @@ networks:
  minio_distributed:
   driver: overlay
 
-secrets:
-  secret_key:
-    file: secret_key.txt
-  access_key:
-    file: access_key.txt
